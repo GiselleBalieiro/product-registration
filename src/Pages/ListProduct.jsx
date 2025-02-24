@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "../Components/Button";
 
 const ListProduct = ({ product, setProduct}) => {
     const handleRemove = (indexHandleRemove) => {
@@ -14,7 +15,10 @@ const ListProduct = ({ product, setProduct}) => {
                     <p>Nome: {product.name}</p>
                     <p>Preço: {product.price}</p>
                     <p>Quantidade: {product.quantity}</p>
-                    <button onClick={() => handleRemove(index)}>Remover</button>
+                    <Button 
+                        className="text-white bg-red-500" 
+                        onClick={() => handleRemove(index)}>Remover</Button>
+                    <Button className="text-white bg-blue-500 px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800">Editar</Button>
                 </li>
             ))}
         </ul>

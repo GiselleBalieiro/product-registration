@@ -3,6 +3,7 @@ import ListProduct from './Pages/ListProduct'
 import ProductRegistration from './Pages/ProductRegistration'
 import { useEffect, useState } from 'react';
 import Sidebar from './Components/Sidebar';
+import "./App.css";
 
 function App() {
   const [product, setProduct] = useState([]);

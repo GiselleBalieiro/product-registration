@@ -16,11 +16,11 @@ const Sidebar = () => {
             <Link to="/products">
                 <List size={20} /> Lista de Produtos
             </Link>
+          </li>
           <li className="flex items-center gap-2 p-2 hover:bg-gray-700 rounded-md cursor-pointer">
             <Link to="/register">
                 <PackageSearch size={20} /> Registrar Produtos
             </Link>
-          </li>
           </li>
         </ul>
       </div>

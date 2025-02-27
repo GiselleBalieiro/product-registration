@@ -2,7 +2,8 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import ListProduct from './Pages/ListProduct'
 import ProductRegistration from './Pages/ProductRegistration'
 import { useEffect, useState } from 'react';
-import Sidebar from './Components/Sidebar';
+import "./index.css"
+import Sidebar from './Components/Components/Sidebar';
 
 function App() {
   const [product, setProduct] = useState([]);

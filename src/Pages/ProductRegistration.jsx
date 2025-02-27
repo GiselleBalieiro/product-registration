@@ -1,7 +1,7 @@
 
 import React, { useState } from "react"
-import Input from "../Components/Input";
-import Button from "../Components/Button";
+import { Button } from "@Components/ui/button"
+import Input from "../Components/Components/Input";
 
 const ProductRegistration = ({product, setProduct}) => {
     const [name, setName] = useState("");
@@ -27,7 +27,8 @@ const ProductRegistration = ({product, setProduct}) => {
             <Input label="Nome: " type="text" value={name} placeholder="Nome do produto" onChange={(event) => setName(event.target.value)} />
             <Input label="Preço: " type="number" value={price} placeholder="Preço do produto" onChange={(event) => setPrice(event.target.value)} />
             <Input label="Quantidade: " type="number" value={quantity} placeholder="Quantidade do produto" onChange={(event) => setQuantity(event.target.value)} />
-            <Button type="submit">Salvar</Button>
+            <Button variant="new">Salvar</Button>
+
         </form>
     )
 }

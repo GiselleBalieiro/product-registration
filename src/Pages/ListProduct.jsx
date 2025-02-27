@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "../Components/Button";
+import { Button } from "@Components/ui/button"
 
 const ListProduct = ({ product, setProduct}) => {
     const handleRemove = (indexHandleRemove) => {
@@ -15,10 +15,10 @@ const ListProduct = ({ product, setProduct}) => {
                     <p>Nome: {product.name}</p>
                     <p>Preço: {product.price}</p>
                     <p>Quantidade: {product.quantity}</p>
-                    <Button 
-                        className="text-white bg-red-500" 
+                    <Button
+                        variant="destructive"
                         onClick={() => handleRemove(index)}>Remover</Button>
-                    <Button className="text-white bg-blue-500 px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800">Editar</Button>
+                    <Button variant="outline">Editar</Button>
                 </li>
             ))}
         </ul>

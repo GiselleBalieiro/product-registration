@@ -7,6 +7,7 @@ import Sidebar from './component/Sidebar';
 
 function App() {
   const [product, setProduct] = useState([]);
+  const [productEdit, setProductEdit] = useState(null)
 
   useEffect(() => {
     const savedProduct = localStorage.getItem("product");
@@ -20,14 +21,18 @@ function App() {
       localStorage.setItem("product", JSON.stringify(product));
   }, [product]);
 
+  const handleEdit = (productEdit) => {
+    setProductEdit(productEdit);
+  };
+
   return (
     <div className=''>
     <Router>
       <Sidebar />
           <Routes>
-            <Route path="/" element={<ProductRegistration product={product} setProduct={setProduct} />} />
-            <Route path="/register" element={<ProductRegistration product={product} setProduct={setProduct} />} />
-            <Route path="/products" element={<ListProduct product={product} setProduct={setProduct} />} />
+            <Route path="/" element={<ProductRegistration product={product} setProduct={setProduct} productEdit={productEdit} setProductEdit={setProductEdit}/>} />
+            <Route path="/register" element={<ProductRegistration product={product} setProduct={setProduct} productEdit={productEdit} setProductEdit={setProductEdit}/>} />
+            <Route path="/products" element={<ListProduct product={product} setProduct={setProduct} productEdit={handleEdit} setProductEdit={setProductEdit} />} />
           </Routes>
     </Router>
     </div>

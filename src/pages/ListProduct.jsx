@@ -9,7 +9,7 @@ const ListProduct = ({ product, setProduct, productEdit}) => {
         setProduct(product.filter((_,index) => index !== indexHandleRemove))
     }
     
-    const productFilter = product.filter((product) => {
+    const productSearch = product.filter((product) => {
         return product.name.toLowerCase().includes(filterList.toLowerCase())
     })
 
@@ -22,7 +22,7 @@ const ListProduct = ({ product, setProduct, productEdit}) => {
             onChange={(e) => setFilterList(e.target.value)}>
         </input>
         <ul>
-            {productFilter.length > 0 ? (productFilter.map((product, index) => (
+            {productSearch.length > 0 ? (productSearch.map((product, index) => (
                 <li key={index}>
                     <p>Nome: {product.name}</p>
                     <p>Preço: R${product.price}</p>
@@ -39,7 +39,7 @@ const ListProduct = ({ product, setProduct, productEdit}) => {
                 </li>
             )))
             : (
-                productFilter && <li>Nenhum produto registrado</li>
+                productSearch && <li>Nenhum produto registrado</li>
             )}
         </ul>
         </>

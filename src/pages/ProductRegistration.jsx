@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "../component/Input";
 import Button from "../component/Button";
-import ListProduct from "./ListProduct";
 
 const ProductRegistration = ({ product, setProduct, productEdit, setProductEdit }) => {
     const [name, setName] = useState("");
@@ -15,6 +14,7 @@ const ProductRegistration = ({ product, setProduct, productEdit, setProductEdit 
             setName(productEdit.name);
             setPrice(productEdit.price);
             setQuantity(productEdit.quantity);
+            setOption(productEdit.option)
             setIsEditing(true);
         }
 

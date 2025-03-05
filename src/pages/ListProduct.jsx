@@ -1,16 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import Button from "../component/Button";
 import { Link } from "react-router-dom";
-const ListProduct = ({ product, setProduct, productEdit, option}) => {
+import FilterSearch from "../component/FilterSearch";
+const ListProduct = ({ product, setProduct, productEdit}) => {
+    const [filterList, setFilterList] = useState("")
+
     const handleRemove = (indexHandleRemove) => {
         setProduct(product.filter((_,index) => index !== indexHandleRemove))
     }
     
-    console.log("Produtos a serem listados:", product);
+    const productFilter = product.filter((product) => {
+        return product.name.toLowerCase().includes(filterList.toLowerCase())
+    })
 
     return (
+        <>
+        <input 
+            type="text"
+            placeholder="Busque um produto"
+            value={filterList}  
+            onChange={(e) => setFilterList(e.target.value)}>
+        </input>
         <ul>
-            {product.map((product, index) => (
+            {productFilter.length > 0 ? (productFilter.map((product, index) => (
                 <li key={index}>
                     <p>Nome: {product.name}</p>
                     <p>Preço: R${product.price}</p>
@@ -25,8 +37,12 @@ const ListProduct = ({ product, setProduct, productEdit, option}) => {
                         </Button>
                     </Link>
                 </li>
-            ))}
+            )))
+            : (
+                productFilter && <li>Nenhum produto registrado</li>
+            )}
         </ul>
+        </>
     )
 }
 

@@ -15,8 +15,8 @@ const ListProduct = ({ product, setProduct, productEdit, option, setOption}) => 
     })
 
     const filterProducts = selectedCategory 
-        ? product.filter((product) => product.option === selectedCategory)
-        : product;
+        ? productSearch.filter((product) => product.option === selectedCategory)
+        : productSearch;
 
     return (
         <>
@@ -27,23 +27,24 @@ const ListProduct = ({ product, setProduct, productEdit, option, setOption}) => 
             value={filterList}  
             onChange={(e) => setFilterList(e.target.value)}>
         </input>
+
         <select className="" required
-                    id="option"
-                    name="option"
-                    value={option}
-                    onChange={(event) => setOption(event.target.value)}>
-                    <option value="" disabled >Selecione</option>
-                    <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
-                    <option value="Vestuário e Calçados">Vestuário e Calçados</option>
-                    <option value="Eletrônicos e Eletrodomésticos">Eletrônicos e Eletrodomésticos</option>
-                    <option value="Cosméticos e Perfumaria">Cosméticos e Perfumaria</option>
-                    <option value="Limpeza e Higiene">Limpeza e Higiene</option>
-                </select>
+            id="option"
+            name="option"
+            value={selectedCategory}
+            onChange={(event) => setSelectedCategory(event.target.value)}>
+            <option value="">Selecione</option>
+            <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
+            <option value="Vestuário e Calçados">Vestuário e Calçados</option>
+            <option value="Eletrônicos e Eletrodomésticos">Eletrônicos e Eletrodomésticos</option>
+            <option value="Cosméticos e Perfumaria">Cosméticos e Perfumaria</option>
+            <option value="Limpeza e Higiene">Limpeza e Higiene</option>
+        </select>
 
         </div>
         
         <ul>
-            {productSearch.length > 0 ? (productSearch.map((product, index) => (
+            {filterProducts.length > 0 ? (filterProducts.map((product, index) => (
                 <li key={index}>
                     <p>Nome: {product.name}</p>
                     <p>Preço: R${product.price}</p>
@@ -60,7 +61,7 @@ const ListProduct = ({ product, setProduct, productEdit, option, setOption}) => 
                 </li>
             )))
             : (
-                productSearch && <li>Nenhum produto registrado</li>
+                filterProducts && <li>Nenhum produto registrado</li>
             )}
         </ul>
         </>

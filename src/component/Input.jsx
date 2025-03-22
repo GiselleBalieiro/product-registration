@@ -1,16 +1,16 @@
 import React from "react";
 
-const Input = ({label, type= "text", value, onChange, placeholder }) => {
+const Input = ({label, type= "text", value, onChange, placeholder, className }) => {
     return (
-        <div className="flex flex-col gap-1">
-            {label && <label className="font-medium">{label}</label>}
-                <input required
-                    type={type} 
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={onChange}
-                    className="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </input>
+        <div className="flex flex-col">
+            <label className="text-white font-semibold mb-2">{label}</label>
+            <input required
+                type={type}
+                value={value}
+                placeholder={placeholder}
+                onChange={onChange}
+                className={`bg-[#F5EBDC] text-[#3E2723] placeholder-[#6D4C41] border border-[#6D4C41] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D7CCC8] ${className}`}
+            />
         </div>
     )
 }

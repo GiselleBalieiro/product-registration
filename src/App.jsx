@@ -4,6 +4,7 @@ import './App.css'
 import ProductRegistration from './pages/ProductRegistration';
 import ListProduct from './pages/ListProduct';
 import Sidebar from './component/Sidebar';
+import Home from './pages/Home';
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -28,12 +29,16 @@ function App() {
   return (
     <div className=''>
     <Router>
-      <Sidebar />
-          <Routes>
-            <Route path="/" element={<ProductRegistration product={product} setProduct={setProduct} productEdit={productEdit} setProductEdit={setProductEdit}/>} />
-            <Route path="/register" element={<ProductRegistration product={product} setProduct={setProduct} productEdit={productEdit} setProductEdit={setProductEdit}/>} />
-            <Route path="/products" element={<ListProduct product={product} setProduct={setProduct} productEdit={handleEdit} setProductEdit={setProductEdit} />} />
-          </Routes>
+      <div className="flex h-screen">
+        <Sidebar />
+          <div className="flex-1 overflow-auto">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<ProductRegistration product={product} setProduct={setProduct} productEdit={productEdit} setProductEdit={setProductEdit}/>} />
+                <Route path="/products" element={<ListProduct product={product} setProduct={setProduct} productEdit={handleEdit} setProductEdit={setProductEdit} />} />
+              </Routes>
+          </div>
+      </div>
     </Router>
     </div>
   )
